@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+}
+@model MvcApplication1.Models.PopularDatePosts
+<div class="Wallpapers">
+    <!-- Popular Wallpapers -->
+    <h2>Popular Wallpapers</h2>
+    @foreach (var item in Model.Items)
+    {
+
+
+
+
+
+        <a class="date">@item.Date.ToString("D")<span>@item.Date.ToString("hh:mm")</span></a>
+        <p class="pop_posts"><a href="@item.URL">@item.Text</a></p>
+    }
+</div>

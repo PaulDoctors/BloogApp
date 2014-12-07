@@ -1,0 +1,96 @@
+﻿
+@model MvcApplication1.Models.ArticlModel
+ <!-- Container -->
+
+        <!-- Post -->
+        <div class="post">
+
+            <!-- Post Details -->
+            <div class="post_inf">
+                <span>@Model.Date.ToString("D")</span><br />
+                <span>@Model.Date.ToString("hh:mm")</span><br />
+                <a class="posc" href="      "> Comments</a>
+
+            </div>
+            <!-- Post Title - Permalink -->
+            <h1>
+                <a href="#"> @Model.Title</a>
+            </h1>
+            <!-- Post Content -->
+            <img src="~/Content/images/post_pic2.jpg" alt="post_pic2" />
+            @Html.Raw(Model.Body)
+        </div>
+        <!-- Likes-->
+        <div class="Likes">
+
+            @foreach (var item in Model.Likes)
+            {
+
+
+                <ul> <li><a href="#"><img src="~/Content/images/palec-vverx.jpg" alt="" /><span>@item.LikesCount</span></a></li></ul>
+            }
+
+        </div>
+  
+
+<!-- Comments -->
+<div class="comments">
+    <!-- Comment --><h2>
+        <a href="#"> comments</a>
+    </h2>
+    @foreach (var item in Model.Comments)
+    {
+
+        <div class="comment">
+
+            <div class="comm_hdr">
+                <a href="#">@item.Username</a>
+                <p><span> @item.Date.ToString("D")</span></p>
+            </div>
+
+            <div class="avat">
+                <img src="~/Content/images/avatar.jpg" alt="avatar" />
+                <img src="~/Content/images/avatar_frame.png" alt="avatar_frame" class="avatar_frame" />
+            </div>
+
+            <p class="comm_txt">
+                @item.Body
+            </p>
+
+        </div>
+
+    }
+
+
+
+    <!-- Comment Form -->
+    <h2>Post your comments</h2>
+
+  <form id="cmnt_frm" method="post" action="">
+        <p><input type="text" name="author" size="22" tabindex="1" id="author" /><label>Name <span>(required)</span></label></p>
+        <p><input type="text" name="email" size="22" tabindex="2" id="email" /><label>Mail <span>(will not be published) (required)</span></label></p>
+        <p><input type="text" name="url" size="22" tabindex="3" id="url" /><label>Website</label></p>
+        <p>
+            <textarea name="comment" cols="65" rows="10" tabindex="4" id="comment"></textarea>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Post comment" tabindex="5" id="submit" />
+        </p>
+
+    </form> 
+    <!-- Pagination -->
+    <div class="pagination">
+
+        <span class="prev">&laquo;Previous</span>
+        <span class="act">1</span>
+      <!-- <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>--> 
+        <a class="next" href="#">Next&raquo;</a>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+
+@model Forms.Models.AddCommentModel
+<div>
+    <form id="cmnt_frm" method="post" action="">
+        <p><input type="text" name="author" size="22" tabindex="1" id="author" /><label>Name <span>(required)</span></label></p>
+        <p><input type="text" name="email" size="22" tabindex="2" id="email" /><label>Mail <span>(will not be published) (required)</span></label></p>
+        <p><input type="text" name="url" size="22" tabindex="3" id="url" /><label>Website</label></p>
+        <p>
+            <textarea name="comment" cols="65" rows="10" tabindex="4" id="comment"></textarea>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Post comment" tabindex="5" id="submit" />
+        </p>
+
+    </form>
+</div>
